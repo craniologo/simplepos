@@ -57,9 +57,9 @@ $_SESSION["errors"] = $errors;
 
 			$sell = new SellData();
 			$sell->ref_id = $last;
-			$sell->user_id = $_SESSION["user_id"];
 			$sell->total = $_POST["t_total"];
 			$sell->discount = $_POST["discount"];
+			$sell->user_id = $_SESSION["user_id"];
 			 if(isset($_POST["client_id"]) && $_POST["client_id"]!=""){
 			 	$sell->person_id=$_POST["client_id"];
  				$s = $sell->add_with_client();

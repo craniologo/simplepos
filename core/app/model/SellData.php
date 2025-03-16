@@ -22,21 +22,21 @@
 			return Executor::doit($sql);
 		}
 
-		public function add_re(){
-			$sql = "insert into ".self::$tablename." (ref_id,user_id,operation_type_id,created_at) ";
-			$sql .= "value (\"$this->ref_id\",$this->user_id,1,$this->created_at)";
-			return Executor::doit($sql);
-		}
-
 		public function add_with_client(){
 			$sql = "insert into ".self::$tablename." (ref_id,total,discount,person_id,user_id,created_at) ";
 			$sql .= "value (\"$this->ref_id\",\"$this->total\",\"$this->discount\",\"$this->person_id\",$this->user_id,$this->created_at)";
 			return Executor::doit($sql);
 		}
 
+		public function add_re(){
+			$sql = "insert into ".self::$tablename." (ref_id,user_id,operation_type_id,total,created_at) ";
+			$sql .= "value (\"$this->ref_id\",$this->user_id,1,\"$this->total\",$this->created_at)";
+			return Executor::doit($sql);
+		}
+
 		public function add_re_with_client(){
-			$sql = "insert into ".self::$tablename." (ref_id,person_id,operation_type_id,user_id,created_at) ";
-			$sql .= "value (\"$this->ref_id\",\"$this->person_id\",1,$this->user_id,$this->created_at)";
+			$sql = "insert into ".self::$tablename." (ref_id,person_id,operation_type_id,total,user_id,created_at) ";
+			$sql .= "value (\"$this->ref_id\",\"$this->person_id\",1,\"$this->total\",$this->user_id,$this->created_at)";
 			return Executor::doit($sql);
 		}
 

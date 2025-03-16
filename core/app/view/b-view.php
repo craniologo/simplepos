@@ -1,14 +1,14 @@
 <section class="content">
 	<div class="row">
-		<div class="col-md-12"><a href="index.php?view=boxhistory" class="btn btn-default"><i class="fa fa-arrow-left"></i> Regresar</a>
+		<div class="col-md-12">
 			<h2><i class='fa fa-archive'></i> Corte de Caja #<?php echo $_GET["id"]; ?></h2>
+			<a href="index.php?view=box_history" class="btn btn-default"><i class="fa fa-arrow-left"></i> Regresar</a>
 			<div class="clearfix"></div>
+			<br>
 			<?php $currency = ConfigurationData::getByPreffix("currency")->val;
 			$products = SellData::getByBoxId($_GET["id"]);
 			if(count($products)>0){
-			$total_total = 0;
-			?>
-			<br>
+			$total_total = 0; ?>
 			<div class="box">
 	  			<div class="box-body no-padding">
 	  				<div class="box-body">
@@ -36,9 +36,7 @@
 					</div>
 				</div>
 			</div>
-			<?php
-			}else {
-			?>
+			<?php }else { ?>
 			<div class="jumbotron"><h2>No hay ventas</h2><p>No se ha realizado ninguna venta.</p></div>
 			<?php } ?>
 			<br><br><br><br>

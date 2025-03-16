@@ -12,10 +12,12 @@
   for($i=$sd;$i<=$ed;$i+=(60*60*24)){
     $operations = SellData::getGroupByDateOp(date("Y-m-d",$i),date("Y-m-d",$i),2);
     $res = SellData::getGroupByDateOp(date("Y-m-d",$i),date("Y-m-d",$i),1);
+    $spends = SpendData::getGroupByDateOp(date("Y-m-d",$i),date("Y-m-d",$i));
    //  echo $operations[0]->t;
-    $sr = $res[0]->tot!=null?$res[0]->tot:0;
     $sl = $operations[0]->t!=null?$operations[0]->t:0;
-    $ntot+=($sl-$sr);
+    $sr = $res[0]->tot!=null?$res[0]->tot:0;
+    $sp = $spends[0]->t!=null?$spends[0]->t:0;
+    $ntot+=($sl-($sr+$sp));
     $nsells += $operations[0]->c;
   } ?>
 <div class="content">
@@ -96,11 +98,13 @@
           for($i=$sd;$i<=$ed;$i+=(60*60*24)){
             $operations = SellData::getGroupByDateOp(date("Y-m-d",$i),date("Y-m-d",$i),2);
             $res = SellData::getGroupByDateOp(date("Y-m-d",$i),date("Y-m-d",$i),1);
-          //  echo $operations[0]->t;
-            $sr = $res[0]->tot!=null?$res[0]->tot:0;
+            $spends = SpendData::getGroupByDateOp(date("Y-m-d",$i),date("Y-m-d",$i));
+            //  echo $operations[0]->t;
             $sl = $operations[0]->t!=null?$operations[0]->t:0;
+            $sr = $res[0]->tot!=null?$res[0]->tot:0;
+            $sp = $spends[0]->t!=null?$spends[0]->t:0;
             echo "dates[c]=\"".date("Y-m-d",$i)."\";";
-            echo "data[c]=".($sl-$sr).";";
+            echo "data[c]=".($sl-($sr+$sp)).";";
             echo "total[c]={x: dates[c],y: data[c]};";
             echo "c++;";
           }

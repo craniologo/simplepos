@@ -134,7 +134,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a href="#"><i class='fa fa-cubes'></i> <span>Inventario</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="index.php?view=inventary"><i class="fa fa-area-chart"></i> <span>Stock</span></a></li>
-                <li><a href="index.php?view=re"><i class="fa fa-refresh"></i> <span>Reabastecer</span></a></li>
                 <li><a href="index.php?view=res"><i class="fa fa-th-list"></i> <span>Reabastecimientos</span></a></li>
               </ul>
             </li>

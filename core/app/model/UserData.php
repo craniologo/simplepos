@@ -7,14 +7,16 @@
 			$this->lastname = "";
 			$this->username = "";
 			$this->email = "";
-			$this->is_admin = "";
 			$this->password = "";
+			$this->image = "";
+			$this->is_active = "";
+			$this->is_admin = "";
 			$this->created_at = "NOW()";
 		}
 
 		public function add(){
-			$sql = "insert into user (name,lastname,username,email,is_admin,password,created_at) ";
-			$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->email\",\"$this->is_admin\",\"$this->password\",$this->created_at)";
+			$sql = "insert into user (name,lastname,username,email,password,is_admin,created_at) ";
+			$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->email\",\"$this->password\",\"$this->is_admin\",$this->created_at)";
 			Executor::doit($sql);
 		}
 
@@ -36,6 +38,11 @@
 
 		public function update_passwd(){
 			$sql = "update ".self::$tablename." set password=\"$this->password\" where id=$this->id";
+			Executor::doit($sql);
+		}
+
+		public function update_image(){
+			$sql = "update ".self::$tablename." set image=\"$this->image\" where id=$this->id";
 			Executor::doit($sql);
 		}
 

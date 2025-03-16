@@ -42,7 +42,7 @@
 								</tr>
 							<?php endforeach; ?>
 							</table>
-							<h4>Total: <?php echo "S/. ".number_format($total_total,2,".",","); ?></h4>
+							<h4>Total: <?php echo $currency." ".number_format($total_total,2,".",","); ?></h4>
 						</div>
 					</div>
 				</div>

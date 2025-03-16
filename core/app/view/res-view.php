@@ -5,7 +5,8 @@
 			<ol class="breadcrumb">
 			   <li><a href="index.php?view=home"><i class="fa fa-home"></i> Inicio</a></li><li><i class="fa fa-cubes"></i> Inventario</li><li class="active"><i class="fa fa-th-list"></i> Reabastecimientos</li>
 			</ol>
-			<div class="clearfix"></div>
+			<a href="index.php?view=re" class="btn btn-primary"><i class="fa fa-refresh"></i> Nuevo Reabastecimiento</a>
+			<div class="clearfix"></div><br>
 			<?php $currency = ConfigurationData::getByPreffix("currency")->val;
 			$products = SellData::getRes();
 			if(count($products)>0){ ?>
@@ -34,7 +35,7 @@
 									$total += $operation->q*$product->price_in; } echo "<b>".number_format($total,2,".",",")."</b>"; ?></td>
 									<td style="text-align: right;"><?php echo $sell->created_at; ?></td>
 									<td style="text-align: center; width: 80px;">
-										<a href="index.php?view=delre&id=<?php echo $sell->id; ?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Eliminar</a></td>
+										<a href="index.php?action=re_del&id=<?php echo $sell->id; ?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Eliminar</a></td>
 								</tr>
 								<?php endforeach; ?>
 							</table>

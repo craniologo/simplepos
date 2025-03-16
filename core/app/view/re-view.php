@@ -3,7 +3,9 @@
 	<div class="row">
 		<div class="col-md-12">
 		<h2><i class="fa fa-refresh"></i> Reabastecer Inventario</h2>
-		<p><b>Buscar producto nombre o por codigo de barras:</b></p>
+			<p><b>Buscar producto nombre o por codigo de barras:</b></p>
+			<a href="index.php?view=res" class="btn btn-default"><i class="fa fa-arrow-left"></i> Regresar</a>
+			<br><br>
 			<form>
 			<div class="row">
 				<div class="col-md-6">

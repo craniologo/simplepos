@@ -16,10 +16,10 @@
 				
 				$sell = new SellData();
 				$sell->ref_id = $last;
+			 	$sell->total = $_POST["money1"];
 				$sell->user_id = $_SESSION["user_id"];
 				 if(isset($_POST["client_id"]) && $_POST["client_id"]!=""){
 				 	$sell->person_id=$_POST["client_id"];
-				 	$sell->total = $_POST["money1"];
 	 				$s = $sell->add_re_with_client();
 				 }else{
 	 				$s = $sell->add_re();
