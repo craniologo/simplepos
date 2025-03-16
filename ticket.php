@@ -20,6 +20,7 @@ $report_image = ConfigurationData::getByPreffix("report_image")->val;
 $currency = ConfigurationData::getByPreffix("currency")->val;
 $imp_name = ConfigurationData::getByPreffix("imp_name")->val;
 $imp_val = ConfigurationData::getByPreffix("imp_val")->val;
+$ruc = ConfigurationData::getByPreffix("ruc")->val;
 
 $sell = SellData::getById($_GET["id"]);
 $operations = OperationData::getAllProductsBySellId($_GET["id"]);
@@ -41,10 +42,12 @@ $pdf->setX(2);
 $pdf->Image('storage/configuration/'.$image,3,5,74,30,);
 $pdf->Ln(33);
 $pdf->setX(2);
-$pdf->Cell(76,8,strtoupper(utf8_decode($title)),0,1,"C");
+$pdf->MultiCell(76,8,strtoupper(utf8_decode($title)),0,"C");
 $pdf->SetFont('Arial','B',8);    //Letra Arial, negrita (Bold), tam. 20
 $pdf->setX(2);
-$pdf->Cell(76,4,strtoupper(utf8_decode($address)),0,1,"C");
+$pdf->MultiCell(76,4,"RUC: ".$ruc,0,"C");
+$pdf->setX(2);
+$pdf->MultiCell(76,4,strtoupper(utf8_decode($address)),0,"C");
 $pdf->setX(2);
 $pdf->Cell(76,4,"TELEFONO: ".strtoupper($phone),0,1,"C");
 $pdf->setX(2);

@@ -6,7 +6,7 @@
       <br><br>
       <form class="form-horizontal" method="post" enctype="multipart/form-data" id="addproduct" action="index.php?action=product_add" role="form">
         <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label">Imagen (ancho 200px)</label>
+          <label for="inputEmail1" class="col-lg-2 control-label">Foto JPG(400x400px)</label>
           <div class="col-md-6">
             <input type="file" name="image" id="image" onchange="ValidarImagen(this);" placeholder="">
           </div>

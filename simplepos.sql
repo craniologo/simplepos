@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 16, 2025 at 12:34 AM
+-- Generation Time: Mar 16, 2025 at 01:56 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -152,16 +152,16 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `short`, `name`, `kind`, `val`) VALUES
-(1, 'company_name', 'Nombre de la empresa', 2, 'Sergestec S.A.C.'),
-(2, 'title', 'Titulo del Sistema', 2, 'Sistema de Ventas'),
-(3, 'ticket_title', 'Titulo en el Ticket', 2, 'SERGESTEC SAC'),
-(4, 'admin_email', 'Email Administracion', 2, 'eabanto2@hotmail.com'),
-(5, 'report_image', 'Imagen en Reportes', 4, ''),
+(1, 'company_name', 'Nombre de la empresa', 2, 'MIBODEGUITA'),
+(2, 'ruc', 'RUC', 2, '10435623456'),
+(3, 'address', 'DirecciÃ³n', 2, 'Av San Francisco de Asis 1375 - La Molina - Lima - PerÃº'),
+(4, 'admin_email', 'Correo ElectrÃ³nico', 2, 'direcciÃ³n'),
+(5, 'report_image', 'Logotipo', 4, 'code.jpg'),
 (6, 'imp_name', 'Nombre Impuesto', 2, 'IGV'),
-(7, 'imp_val', 'Valor Impuesto (%)', 2, '10'),
-(8, 'currency', 'Simbolo de Moneda', 2, '$$'),
-(9, 'address', 'Direccion', 2, 'Los Libertadores 178 Surco'),
-(10, 'phone', 'Telefono', 2, '987985300');
+(7, 'imp_val', 'Valor Impuesto (%)', 2, '18'),
+(8, 'currency', 'Simbolo de Moneda', 2, 'S/'),
+(9, 'phone', 'TelÃ©fono', 2, '+51943404778'),
+(10, 'note', 'Nota', 2, 'Una ves retirada la mercaderÃ­a, no hay lugar a reclamos.');
 
 -- --------------------------------------------------------
 

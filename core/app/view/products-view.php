@@ -51,7 +51,7 @@
 									<table class="table table-bordered table-hover">
 										<thead>
 											<th style="text-align: center; width: 30px;">Codigo</th>
-											<th style="text-align: center;">Foto</th>
+											<th style="text-align: center; width: 50px;">Foto</th>
 											<th style="text-align: center;">Nombre</th>
 											<th style="text-align: center;">Compra&nbsp;<?php echo $currency; ?></th>
 											<th style="text-align: center;">Venta&nbsp;<?php echo $currency; ?></th>

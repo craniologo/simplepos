@@ -7,8 +7,6 @@
 		<div class="col-md-12">
 			<h2><i class="fa fa-coffee"></i> Lista de Gastos</h2>
 			<a href='#spend_new' data-toggle='modal' class='btn btn-primary'><i class='fa fa-th-coffee'></i> Nuevo Gasto</a>
-			<div class="clearfix"></div>
-			<br>
 			<?php if($u->is_admin==1){
 				$spends = SpendData::getAllUnBoxed();
 			}else{

@@ -25,7 +25,7 @@
 								foreach($users as $user){ ?>
 								<tr>
 									<td style="text-align: center;"><?php echo $number; ?></td><?php $number++;?>
-									<td><a href="index.php?view=category_products&id=<?php echo $user->id;?>" class="btn btn-info btn-xs"><i class="fa fa-apple"></i> <?php echo $user->name; ?></a></td>
+									<td><a href="index.php?view=category_products&id=<?php echo $user->id;?>" class="btn btn-primary btn-xs"><i class="fa fa-th-list"></i> <?php echo $user->name; ?></a></td>
 									<td><?php echo $user->description; ?></td>
 									<td style="text-align: center;">
 										<a href="index.php?view=category_edit&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>
