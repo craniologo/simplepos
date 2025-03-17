@@ -74,7 +74,7 @@
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <a href="./?view=boxhistory" class="small-box-footer">Ver caja <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="./?view=box_history" class="small-box-footer">Ver caja <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div><!-- ./col -->
   </div>

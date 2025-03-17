@@ -46,7 +46,8 @@
 									<?php if ($u->is_admin==1): ?><td><?php $user = UserData::getById($sell->user_id); echo $user->name." ".$user->lastname; ?></td><?php endif; ?>
 									<td style="text-align: right;"><?php echo $sell->created_at; ?></td>
 									<td style="text-align: center;">
-										<a href="index.php?action=sell_del&id=<?php echo $sell->id; ?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Eliminar</a></td>
+										<a target="_blank" href="ticket.php?id=<?php echo $sell->id; ?>" class="btn btn-success btn-xs" ><i class="fa fa-print"></i></a>
+										<a href="index.php?action=sell_del&id=<?php echo $sell->id; ?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
 								</tr>
 								<?php endforeach; ?>
 							</table>

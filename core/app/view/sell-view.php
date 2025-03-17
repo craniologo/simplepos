@@ -95,7 +95,8 @@
 						<td><?php echo $product->name; ?></td>
 						<td style="text-align: right;"><b><?php echo number_format($product->price_out,2,".",","); ?></b></td>
 						<td style="text-align: right;"><b><?php  $pt = $product->price_out*$p["q"]; $total +=$pt; echo number_format($pt,2,".",","); ?></b></td>
-						<td style="text-align: center;"><a href="index.php?action=cart_clear&product_id=<?php echo $product->id; ?>" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></a></td>
+						<td style="text-align: center;">
+							<a href="index.php?action=cart_clear&product_id=<?php echo $product->id; ?>" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></a></td>
 					</tr>
 					<?php endforeach; ?>
 				</table>
