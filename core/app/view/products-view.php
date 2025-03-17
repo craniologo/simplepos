@@ -6,10 +6,10 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2><i class="fa fa-apple"></i> Lista de Productos</h2>
+			<p>Lista de artículos existentes en la empresa.</p>
 			<?php if($u->is_admin==1): ?><a href='index.php?view=product_new' class='btn btn-primary'><i class='fa fa-apple'></i> Nuevo Producto</a><?php endif; ?>
 			<br>
 			<div class="card">
-				<div class="card-header">PRODUCTOS</div>
 				<div class="card-body">
 					<?php $page = 1;
 					if(isset($_GET["page"])){
@@ -31,7 +31,7 @@
 					if($spaginas>0){
 						$npaginas++;
 					} ?>
-					<h3>Pagina <?php echo $page." de ".$npaginas; ?></h3>
+					<div class="col-md-3"><h3>Pagina <?php echo $page." de ".$npaginas; ?></h3></div>
 					<div class="btn-group pull-right">
 						<?php $px=$page-1;
 						if($px>0): ?>
@@ -42,8 +42,7 @@
 						<a class="btn btn-sm btn-primary" href="<?php echo "index.php?view=products&limit=$limit&page=".($px); ?>">Adelante <i class="glyphicon glyphicon-chevron-right"></i></a>
 						<?php endif; ?>
 					</div>
-					<div class="clearfix"></div>
-					<br>
+					<div class="clearfix"></div><br>
 					<div class="box">
 			  			<div class="box-body no-padding">
 			  				<div class="box-body">
@@ -68,15 +67,15 @@
 						                    <?php }else{ ?>
 						                    <img src="storage/products/default.jpg" style="width:50px; height: 50px;" >
 						                    <?php } ?></td>
-											<td><?php echo $product->name; ?></td>
+											<td><a title="<?php echo $product->description; ?>"><?php echo substr($product->name, 0, 50); ?></a></td>
 											<td style="text-align: right;"><b><?php echo number_format($product->price_in,2,'.',','); ?></b></td>
 											<td style="text-align: right;"><b><?php echo number_format($product->price_out,2,'.',','); ?></b></td>
-											<td><?php if($product->category_id!=null){echo $product->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
-											<td><?php echo $product->inventary_min; ?></td>
-											<td><?php if($product->is_active): ?><i class="fa fa-check"></i><?php endif;?></td>
+											<td><?php if($product->category_id!=null){echo '<a href="index.php?view=category_products&id='.$product->category_id.'">'.$product->getCategory()->name.'</a>'; }else{ echo "<center>----</center>"; }  ?></td>
+											<td style="text-align: right;"><?php echo $product->inventary_min; ?></td>
+											<td style="text-align: center;"><?php if($product->is_active): ?><i class="fa fa-check"></i><?php endif;?></td>
 											<?php if($u->is_admin==1): ?><td style="text-align: center;">
 												<a href="index.php?view=product_edit&id=<?php echo $product->id; ?>" class="btn btn-xs btn-warning" ><i class="fa fa-pencil" ></i> Editar</a>
-												<a href="index.php?view=delproduct&id=<?php echo $product->id; ?>" class="btn btn-xs btn-danger" onclick="return confirm('¿Está seguro de eliminar?')" ><i class="fa fa-trash" ></i> Eliminar</a>
+												<a href="index.php?action=product_del&id=<?php echo $product->id; ?>" class="btn btn-xs btn-danger" onclick="return confirm('¿Está seguro de eliminar?')" ><i class="fa fa-trash" ></i> Eliminar</a>
 											</td><?php endif; ?>
 										</tr>
 										<?php endforeach;?>

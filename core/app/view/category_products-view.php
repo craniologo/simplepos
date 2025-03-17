@@ -1,10 +1,18 @@
 <section class="content"><!-- Main content -->
-	<?php $products = ProductData::getAllByCategoryId($_GET["id"]);
-	$currency = ConfigurationData::getByPreffix("currency")->val; ?>
+	<?php $u=null;
+    if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
+    $u = UserData::getById($_SESSION["user_id"]);
+    $products = ProductData::getAllByCategoryId($_GET["id"]);
+	$currency = ConfigurationData::getByPreffix("currency")->val;
+	if($u->is_admin==1){
+		$return = 'categories';
+	}else{
+		$return = 'products';
+	} ?>
 	<div class="row">
 		<div class="col-md-12">
 			<h2><i class="fa fa-apple"></i> Productos de la categoría <?php echo $cat = CategoryData::getById($_GET["id"])->name; ?></h2>
-			<a href="index.php?view=categories" class="btn btn-default"><i class="fa fa-arrow-left"></i> Regresar</a>
+			<a href="index.php?view=<?php echo $return; ?>" class="btn btn-default"><i class="fa fa-arrow-left"></i> Regresar</a>
 			<br><br>
 			<?php if(count($products)>0){ ?>
 			<div class="box box-primary">
@@ -26,7 +34,7 @@
 								<tr>
 									<td style="text-align: center;"><?php echo $number; ?></td><?php $number++;?>
 									<td style="text-align: right;"><?php echo $product->barcode; ?></td>
-									<td><?php echo $product->name; ?></td>
+									<td><a title="<?php echo $product->description; ?>"><?php echo substr($product->name, 0, 50); ?></a></td>
 									<td style="text-align: right;"><b><?php echo number_format($product->price_in,2,'.',','); ?></b></td>
 									<td style="text-align: right;"><b><?php echo number_format($product->price_out,2,'.',','); ?></b></td>
 									<td style="text-align: right;"><?php echo $product->inventary_min; ?></td>
@@ -47,4 +55,5 @@
 			<br>
 		</div>
 	</div>
+	<?php endif; ?>
 </section>

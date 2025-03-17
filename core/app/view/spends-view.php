@@ -7,6 +7,7 @@
 		<div class="col-md-12">
 			<h2><i class="fa fa-coffee"></i> Lista de Gastos</h2>
 			<a href='#spend_new' data-toggle='modal' class='btn btn-primary'><i class='fa fa-th-coffee'></i> Nuevo Gasto</a>
+			<div class="clearfix"></div><br>
 			<?php if($u->is_admin==1){
 				$spends = SpendData::getAllUnBoxed();
 			}else{
@@ -14,7 +15,6 @@
 			}
 			$total = 0;
 			if(count($spends)>0){ ?>
-			<br><br>
 			<div class="box">
 			    <div class="box-body no-padding">
 			        <div class="box-body table-responsive">
@@ -38,7 +38,7 @@
 								<td style="text-align: right;"><?php echo $spend->created_at; ?></td>
 								<td style=" text-align: center;">
 									<a href="index.php?view=spend_edit&id=<?php echo $spend->id; ?>" class="btn btn-xs btn-warning" ><i class="fa fa-pencil" ></i> Editar</a>
-									<?php if($u->is_admin==1): ?><a href="index.php?action=spend_del&id=<?php echo $spend->id;?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a><?php endif; ?>
+									<?php if($u->is_admin==1 || $spend->user_id==$u->id): ?><a href="index.php?action=spend_del&id=<?php echo $spend->id;?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a><?php endif; ?>
 								</td>
 							</tr>
 							<?php $total+=$spend->price; } ?>

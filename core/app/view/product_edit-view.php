@@ -11,9 +11,8 @@
     	<br><br>
   		<form class="form-horizontal" method="post" id="addproduct" enctype="multipart/form-data" action="index.php?action=product_update" role="form">
         <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label">Imagen JPG(400x400px)</label>
+          <label for="inputEmail1" class="col-lg-2 control-label">Foto JPG(400x400px)</label>
           <div class="col-md-8">
-            <input type="file" name="image" id="name" placeholder="">
             <?php if($product->image!=""){ ?>
             <br>
               <img src="storage/products/<?php echo $product->image;?>" class="img-responsive" style="width:300px; height:300px;">
@@ -21,6 +20,7 @@
             <br>
             <img src="storage/products/default.jpg" class="img-responsive" style="width: 300px; height: 300px;">
             <?php } ?>
+            <input type="file" name="image" id="name" placeholder="">
           </div>
         </div>
         <div class="form-group">

@@ -25,7 +25,7 @@ if(count($products)>0){ ?>
 			<tr class="<?php if($q<=$product->inventary_min){ echo "danger"; }?>">
 				<td style="text-align: center;"><?php echo $number; ?></td> <?php $number++; ?><!--var incremen-->
 				<td style="text-align: right;"><?php echo $product->barcode; ?></td>
-				<td><?php echo $product->name; ?></td>
+				<td><a title="<?php echo $product->description; ?>"><?php echo substr($product->name, 0, 50); ?></a></td>
 				<td style="text-align: right;"><?php echo $product->unit; ?></td>
 				<td style="text-align: right;"><b><?php echo number_format($product->price_out,2,".",","); ?></b></td>
 				<td style="text-align: right;"><?php echo $q; ?></td>

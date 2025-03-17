@@ -3,8 +3,7 @@
 		<div class="col-md-12">
 			<h2><i class='fa fa-archive'></i> Corte de Caja #<?php echo $_GET["id"]; ?></h2>
 			<a href="index.php?view=box_history" class="btn btn-default"><i class="fa fa-arrow-left"></i> Regresar</a>
-			<div class="clearfix"></div>
-			<br>
+			<div class="clearfix"></div><br>
 			<?php $currency = ConfigurationData::getByPreffix("currency")->val;
 			$products = SellData::getByBoxId($_GET["id"]);
 			if(count($products)>0){

@@ -13,8 +13,8 @@
 			$this->created_at = "NOW()";
 		}
 
-		public function getPerson(){ return PersonData::getById($this->person_id);}
-		public function getUser(){ return UserData::getById($this->user_id);}
+		public function getPerson(){ return PersonData::getById($this->person_id); }
+		public function getUser(){ return UserData::getById($this->user_id); }
 
 		public function add(){
 			$sql = "insert into ".self::$tablename." (ref_id,total,discount,user_id,created_at) ";
@@ -52,6 +52,11 @@
 
 		public function update_box(){
 			$sql = "update ".self::$tablename." set box_id=$this->box_id where id=$this->id";
+			Executor::doit($sql);
+		}
+
+		public function update_box_null(){
+			$sql = "update ".self::$tablename." set box_id=NULL where id=$this->id";
 			Executor::doit($sql);
 		}
 
