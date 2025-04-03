@@ -100,32 +100,23 @@
 					</tr>
 					<?php endforeach; ?>
 				</table>
+				<h3>Acumulado: <?php echo $currency.' '.number_format($total,1)."0"; ?></h3>
 			</div>
 		</div>
 	</section>
 		<form method="post" class="form-horizontal" id="sell_process" action="index.php?action=sell_process" name="sell_process">
-			<div class="form-group col-md-12">
-				<table class="table-bordered">
-					<tr>
-						<td style="text-align: center; width: 130px;"><h3>Resumen</h3></td>
-						<td style="text-align: center; width: 180px;"><h3>Total: <?php echo $currency.' '.number_format($total,1)."0"; ?></h3></td>
-					</tr>
-				</table>
-			</div>
 			<div class="col-xs-8 col-md-6">
 				<div class="form-group">
-			    <label for="inputEmail1" class="col-lg-3 control-label">Buscar Cliente</label>
+			    <label for="inputEmail1" class="col-lg-3 control-label">Cliente</label>
 			    <div class="col-lg-4">
-			    	<?php $clients = PersonData::getClients(); ?>
 					<select name="client_id" class="form-control">
-				    <!--<option value="">-- NINGUNO --</option>-->
-				    <?php foreach($clients as $client):?>
+				    <?php foreach(PersonData::getClients() as $client):?>
 			    	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
 			    	<?php endforeach;?>
 			    	</select>
 					</div>
 			    <div class="col-lg-2">
-			      	<a href="#client_new" class="btn btn-primary" data-toggle="modal"><i class='fa fa-smile-o'></i> Agregar</a>
+			      	<a href="#client_new" class="btn btn-primary" data-toggle="modal"><i class='fa fa-user'></i> Nuevo</a>
 			    </div>
 				</div>
 				<div class="form-group">

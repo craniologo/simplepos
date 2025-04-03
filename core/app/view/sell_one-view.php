@@ -91,6 +91,7 @@
 									</tr>
 									<?php }?>
 								</table>
+								<h3>Acumulado: <?php echo $currency.' '.number_format($total, 2, '.', ''); ?></h3>
 							</div>
 						</div>
 					</div>
@@ -122,7 +123,7 @@
 									</tr>
 									<tr>
 										<td>Total(<?php echo $currency; ?>):</td>
-										<td style="text-align: right;"><b><?php echo number_format($total-$sell->discount,2,".",","); ?></b></td>
+										<td style="text-align: right;"><b><?php echo number_format($total,2,".",","); ?></b></td>
 									</tr>
 								</table>
 							</div>
