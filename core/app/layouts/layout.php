@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       echo "<img src='storage/profiles/default.jpg' class='img-circle'>";
                     } ?>
                     <p><?php echo $u->name." ".$u->lastname; ?></p>
-                    <p><?php if($u->is_admin==1){ echo " (Administrador)"; }else if($u->is_admin==2){ echo " (Vendedor)"; } ?></p>
+                    <p><?php if($u->is_admin==1){ echo " (Administrador)"; }else if($u->is_admin==0){ echo " (Vendedor)"; } ?></p>
                   </li>                  <!-- The user image in the menu -->
                   <!--<li><a href="">Cambiar de usuario</a></li>-->
                   <!-- Menu Footer-->

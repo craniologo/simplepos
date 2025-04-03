@@ -32,9 +32,9 @@
           <div class="col-md-3">
             <input type="text" name="username" value="<?php echo $user->username;?>" class="form-control" required id="username" placeholder="Nombre de usuario">
           </div>
-          <label for="inputEmail1" class="col-lg-1 control-label">Email*</label>
+          <label for="inputEmail1" class="col-lg-1 control-label">Correo Elctrónico*</label>
           <div class="col-md-3">
-            <input type="text" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Correo Electrónico">
+            <input type="email" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Correo Electrónico">
           </div>
         </div>
         <div class="form-group">
