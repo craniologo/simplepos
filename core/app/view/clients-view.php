@@ -18,9 +18,9 @@
 								<table class="table table-bordered datatable table-hover">
 									<thead>
 										<th style="text-align: center; width: 30px;">N°</th>
-										<th style="text-align: center;">Nombre</th>
+										<th style="text-align: center;">Nombre&nbsp;Completo</th>
 										<th style="text-align: center;">RUC/DNI</th>
-										<th style="text-align: center;">Direccion</th>
+										<th style="text-align: center;">Dirección</th>
 										<th style="text-align: center;">Correo&nbsp;Electrónico</th>
 										<th style="text-align: center;">Teléfono</th>
 										<th style="text-align: center; width:150px;">Acción</th>
@@ -72,9 +72,9 @@
 		          </div>
 		        </div>
 		        <div class="form-group">
-		          <label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
+		          <label for="inputEmail1" class="col-lg-2 control-label">Apellidos*</label>
 		          <div class="col-md-9">
-		            <input type="text" name="lastname" required class="form-control" id="lastname" placeholder="Apellido">
+		            <input type="text" name="lastname" required class="form-control" id="lastname" placeholder="Apellidos">
 		          </div>
 		        </div>
 		        <div class="form-group">
@@ -84,7 +84,7 @@
 		          </div>
 		        </div>
 		        <div class="form-group">
-		          <label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
+		          <label for="inputEmail1" class="col-lg-2 control-label">Dirección*</label>
 		          <div class="col-md-9">
 		            <input type="text" name="address" class="form-control" required id="address" placeholder="Dirección">
 		          </div>
