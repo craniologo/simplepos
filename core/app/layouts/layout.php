@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       echo "<img src='storage/profiles/default.jpg' class='img-circle'>";
                     } ?>
                     <p><?php echo $u->name." ".$u->lastname; ?></p>
-                    <p><?php if($u->is_admin==1){ echo " (Administrador)"; }else if($u->is_admin==0){ echo " (Vendedor)"; } ?></p>
+                    <p><?php if($u->kind==1){ echo " (Administrador)"; }else if($u->kind==2){ echo " (Cajero)"; }else if($u->kind==3){ echo " (Vendedor)"; } ?></p>
                   </li>                  <!-- The user image in the menu -->
                   <!--<li><a href="">Cambiar de usuario</a></li>-->
                   <!-- Menu Footer-->
@@ -96,12 +96,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li><a href="./index.php?view=home"><i class='fa fa-home'></i> <span>Inicio</span></a></li>
             <li><a href="index.php?view=alerts"><i class="fa fa-warning"></i> <span>Alertas</span></a></li>
             <li><a href="./index.php?view=sell"><i class='fa fa-shopping-cart'></i> <span>Vender</span></a></li>
-            <?php if($u->is_admin==0):?>
+            <?php if($u->kind==2 || $u->kind==3):?>
             <li><a href="./index.php?view=products"><i class='fa fa-apple'></i> <span>Productos</span></a></li>
             <li><a href="./index.php?view=sells"><i class='fa fa-dollar'></i> <span>Ventas</span></a></li>
             <li><a href="index.php?view=spends"><i class="fa fa-coffee"></i> <span>Gastos</span></a></li>
           <?php endif;?>
-          <?php if($u->is_admin==1):?>
+          <?php if($u->kind==1):?>
             <li class="treeview">
               <a href="#"><i class='fa fa-th-list'></i> <span>Catálogos</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
@@ -111,6 +111,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href="index.php?view=providers"><i class="fa fa-truck"></i> <span>Proveedores</span></a></li>
               </ul>
             </li>
+          <?php endif;?>
+          <?php if($u->kind==1 || $u->kind==2):?>
             <li class="treeview">
               <a href="#"><i class='fa fa-money'></i> <span>Finanzas</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
@@ -122,19 +124,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </ul>
             </li>
             <li class="treeview">
+              <a href="#"><i class='fa fa-cubes'></i> <span>Inventario</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="index.php?view=inventary"><i class="fa fa-area-chart"></i> <span>Stock</span></a></li>
+                <li><a href="index.php?view=res"><i class="fa fa-th-list"></i> <span>Reabastecimientos</span></a></li>
+              </ul>
+            </li>
+          <?php endif;?>
+          <?php if($u->kind==1):?>
+            <li class="treeview">
               <a href="#"><i class='fa fa-bar-chart-o'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="./index.php?view=analytic"><i class='fa fa-dashboard'></i> <span>Analytics</span></a></li>
                 <!-- <li><a href="./index.php?view=sellreports"><i class="fa fa-list-ol"></i> <span>Ventas</span></a></li>
                 <li><a href="./index.php?view=sell_user"><i class="fa fa-users"></i> <span>Usuarios</span></a></li> -->
                 <li><a href="index.php?view=gencodebar"><i class="fa fa-barcode"></i> <span>Código de barras</span></a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#"><i class='fa fa-cubes'></i> <span>Inventario</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="index.php?view=inventary"><i class="fa fa-area-chart"></i> <span>Stock</span></a></li>
-                <li><a href="index.php?view=res"><i class="fa fa-th-list"></i> <span>Reabastecimientos</span></a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -172,9 +176,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="form-group has-feedback">
                 <!-- <input type="text" name="username" required class="form-control" placeholder="Usuario" value="admin"/> -->
                 <select name="username" class="form-control">
-                  <option value="admin">Administrador</option>
-                  <option value="mtalavera">Vendedor 1</option>
-                  <option value="tpuente">Vendedor 2</option>
+                  <option value="admin@gmail.com">Administrador</option>
+                  <option value="cajero@gmail.com">cajero@gmail.com</option>
+                  <option value="vendedor@gmail.com">vendedor@gmail.com</option>
                 </select>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
               </div>

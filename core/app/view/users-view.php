@@ -16,10 +16,10 @@
 								<th style="text-align: center; width: 30px;">N°</th>
 								<th style="text-align: center; width: 50px;">Foto</th>
 								<th style="text-align: center;">Nombre&nbsp;Completo</th>
-								<th style="text-align: center;">Usuario</th>
-								<th style="text-align: center;">Correo&nbsp;Electrónico</th>
+								<th style="text-align: center;">Dirección</th>
+								<th style="text-align: center;">Usuario/Correo&nbsp;Electrónico</th>
 								<th style="text-align: center;">Activo</th>
-								<th style="text-align: center;">Admin</th>
+								<th style="text-align: center;">Rol</th>
 								<th style="text-align: center; width: 150px;">Acción</th>
 							</thead>
 							<?php for ($number=0; $number<1; $number++);
@@ -33,18 +33,22 @@
                   	<img src="storage/profiles/default.jpg" style="width:50px; height: 50px; ">
                   <?php } ?></td>
 								<td><?php echo $user->name." ".$user->lastname; ?></td>
-								<td><?php echo $user->username; ?></td>
+								<td><?php echo $user->address; ?></td>
 								<td><?php echo $user->email; ?></td>
 								<td style="text-align: center;"><?php if($user->is_active):?>
 										<i class="glyphicon glyphicon-ok"></i>
 									<?php endif; ?></td>
-								<td style="text-align: center;"><?php if($user->is_admin):?>
-										<i class="glyphicon glyphicon-ok"></i>
-									<?php endif; ?>
-								</td>
-								<td style="text-align: center;">
+								<td><?php switch ($user->kind) {
+										case '1': echo "Administrador"; break;
+										case '2': echo "Cajero"; break;
+										case '3': echo "Vendedor"; break;
+										default:
+											# code...
+											break;
+										} ?></td>
+								<td style="text-align: center;"><?php if($user->id!=1){ ?>
 									<a href="index.php?view=user_edit&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>
-									<a href="index.php?action=user_del&id=<?php echo $user->id;?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Eliminar</a>
+									<a href="index.php?action=user_del&id=<?php echo $user->id;?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Eliminar</a><?php }else{ echo "Denegado"; } ?>
 								</td>
 							</tr>
 							<?php
@@ -83,15 +87,15 @@
 		          </div>
 		        </div>
 		        <div class="form-group">
-		          <label for="inputEmail1" class="col-lg-2 control-label">Usuario*</label>
+		          <label for="inputEmail1" class="col-lg-2 control-label">Dirección*</label>
 		          <div class="col-md-9">
-		            <input type="text" name="username" class="form-control" required id="username" placeholder="Usuario">
+		            <input type="text" name="address" class="form-control" required id="address" placeholder="Dirección">
 		          </div>
 		        </div>
 		        <div class="form-group">
-		          <label for="inputEmail1" class="col-lg-2 control-label">Correo Electrónico</label>
+		          <label for="inputEmail1" class="col-lg-2 control-label">Usuario/Correo Electrónico</label>
 		          <div class="col-md-9">
-		            <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico">
+		            <input type="email" name="email" class="form-control" id="email" placeholder="Usuario/Correo electrónico">
 		          </div>
 		        </div>
 		        <div class="form-group">
@@ -101,13 +105,14 @@
 		          </div>
 		        </div>
 		        <div class="form-group">
-		          <label for="inputEmail1" class="col-lg-2 control-label">Admin</label>
+		          <label for="inputEmail1" class="col-lg-2 control-label">Rol*</label>
 		          <div class="col-md-9">
-			        <div class="checkbox">
-			          <label>
-			            <input type="checkbox" name="is_admin"> 
-			          </label>
-			        </div>
+		          	<select name="kind" class="form-control" required>
+		          		<option value="">-- SELECCIONAR --</option>
+		          		<option value="1">Administrador</option>
+		          		<option value="2">Cajero</option>
+		          		<option value="3">Vendedor</option>
+		          	</select>
 		          </div>
 		        </div>
 		        <div class="form-group">

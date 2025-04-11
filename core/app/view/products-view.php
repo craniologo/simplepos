@@ -7,7 +7,7 @@
 		<div class="col-md-12">
 			<h2><i class="fa fa-apple"></i> Lista de Productos</h2>
 			<p>Lista de artículos existentes en la empresa.</p>
-			<?php if($u->is_admin==1): ?><a href='index.php?view=product_new' class='btn btn-primary'><i class='fa fa-apple'></i> Nuevo Producto</a><?php endif; ?>
+			<?php if($u->kind==1): ?><a href='index.php?view=product_new' class='btn btn-primary'><i class='fa fa-apple'></i> Nuevo Producto</a><?php endif; ?>
 			<br>
 			<div class="card">
 				<div class="card-body">
@@ -57,7 +57,7 @@
 											<th style="text-align: center;">Categoría</th>
 											<th style="text-align: center;">Minima</th>
 											<th style="text-align: center;">Activo</th>
-											<?php if($u->is_admin==1): ?><th style="text-align: center; width: 150px;">Acción</th><?php endif; ?>
+											<?php if($u->kind==1): ?><th style="text-align: center; width: 150px;">Acción</th><?php endif; ?>
 										</thead>
 										<?php foreach($curr_products as $product):?>
 										<tr>
@@ -73,7 +73,7 @@
 											<td><?php if($product->category_id!=null){echo '<a href="index.php?view=category_products&id='.$product->category_id.'">'.$product->getCategory()->name.'</a>'; }else{ echo "<center>----</center>"; }  ?></td>
 											<td style="text-align: right;"><?php echo $product->inventary_min; ?></td>
 											<td style="text-align: center;"><?php if($product->is_active): ?><i class="fa fa-check"></i><?php endif;?></td>
-											<?php if($u->is_admin==1): ?><td style="text-align: center;">
+											<?php if($u->kind==1): ?><td style="text-align: center;">
 												<a href="index.php?view=product_edit&id=<?php echo $product->id; ?>" class="btn btn-xs btn-warning" ><i class="fa fa-pencil" ></i> Editar</a>
 												<a href="index.php?action=product_del&id=<?php echo $product->id; ?>" class="btn btn-xs btn-danger" onclick="return confirm('¿Está seguro de eliminar?')" ><i class="fa fa-trash" ></i> Eliminar</a>
 											</td><?php endif; ?>

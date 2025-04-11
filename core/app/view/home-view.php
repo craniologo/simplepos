@@ -1,5 +1,5 @@
 <?php $user = UserData::getById($_SESSION["user_id"]);
-  if($user->is_admin==0){ Core::redir("./?view=sell"); }
+  if($user->kind==3){ Core::redir("./?view=sell"); }
   $currency = ConfigurationData::getByPreffix("currency")->val; ?>
 <?php
   $dateB = new DateTime(date('Y-m-d'));

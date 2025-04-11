@@ -7,11 +7,14 @@
 		$user = UserData::getById($_POST["user_id"]);
 		$user->name = $_POST["name"];
 		$user->lastname = $_POST["lastname"];
-		$user->username = $_POST["username"];
+		$user->username = $_POST["email"];
+		$user->address = $_POST["address"];
 		$user->email = $_POST["email"];
-		$user->is_admin=$is_admin;
+		$user->kind = $_POST["kind"];
 		$user->is_active=$is_active;
-		$user->update();
+		if($user->id!=1){
+			$user->update();
+		}
 		if(isset($_FILES["image"])){
 			$image = new Upload($_FILES["image"]);
 			if($image->uploaded){
@@ -22,7 +25,7 @@
 				}
 			}
 		}
-		if($_POST["password"]!=""){
+		if($_POST["password"]!="" && $user->id!=1){
 			$user->password = sha1(md5($_POST["password"]));
 			$user->update_passwd();
 			print "<script>alert('Se ha actualizado el password');</script>";

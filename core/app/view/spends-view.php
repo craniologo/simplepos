@@ -8,7 +8,7 @@
 			<h2><i class="fa fa-coffee"></i> Lista de Gastos</h2>
 			<a href='#spend_new' data-toggle='modal' class='btn btn-primary'><i class='fa fa-th-coffee'></i> Nuevo Gasto</a>
 			<div class="clearfix"></div><br>
-			<?php if($u->is_admin==1){
+			<?php if($u->kind==1){
 				$spends = SpendData::getAllUnBoxed();
 			}else{
 				$spends = SpendData::getAllByUser($u->id);
@@ -23,7 +23,7 @@
 								<th style="text-align: center; width: 30px;">N°</th>
 								<th style="text-align: center;">Concepto</th>
 								<th style="text-align: center;">Monto&nbsp;<?php echo $currency; ?></th>
-								<?php if($u->is_admin==1): ?><th style="text-align: center;">Usuario</th><?php endif; ?>
+								<?php if($u->kind==1): ?><th style="text-align: center;">Usuario</th><?php endif; ?>
 								<th style="text-align: center;">Fecha</th>
 								<th style="text-align: center; width: 150px;">Acción</th>
 							</thead>
@@ -34,11 +34,11 @@
 								<td style="text-align: center;"><?php echo $number; ?></td> <?php $number++; ?><!--var incremen-->
 								<td><?php echo $spend->name; ?></td>
 								<td style="text-align: right;S"><b><?php echo number_format($spend->price,2,".",","); ?></b></td>
-								<?php if ($u->is_admin==1): ?><td><?php echo $user->name." ".$user->lastname; ?></td><?php endif; ?>
+								<?php if ($u->kind==1): ?><td><?php echo $user->name." ".$user->lastname; ?></td><?php endif; ?>
 								<td style="text-align: right;"><?php echo $spend->created_at; ?></td>
 								<td style=" text-align: center;">
 									<a href="index.php?view=spend_edit&id=<?php echo $spend->id; ?>" class="btn btn-xs btn-warning" ><i class="fa fa-pencil" ></i> Editar</a>
-									<?php if($u->is_admin==1 || $spend->user_id==$u->id): ?><a href="index.php?action=spend_del&id=<?php echo $spend->id;?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a><?php endif; ?>
+									<?php if($u->kind==1 || $spend->user_id==$u->id): ?><a href="index.php?action=spend_del&id=<?php echo $spend->id;?>" onclick="return confirm('¿Está seguro de eliminar?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a><?php endif; ?>
 								</td>
 							</tr>
 							<?php $total+=$spend->price; } ?>

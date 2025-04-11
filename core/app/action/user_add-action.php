@@ -6,9 +6,10 @@
 		$user = new UserData();
 		$user->name = $_POST["name"];
 		$user->lastname = $_POST["lastname"];
-		$user->username = $_POST["username"];
+		$user->username = $_POST["email"];
+		$user->address = $_POST["address"];
 		$user->email = $_POST["email"];
-		$user->is_admin=$is_admin;
+		$user->kind=$_POST['kind'];
 		$user->password = sha1(md5($_POST["password"]));
 		$user->image = "NULL";
 		$user->add();

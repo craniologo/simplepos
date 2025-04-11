@@ -29,13 +29,13 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label">Nombre de usuario*</label>
+          <label for="inputEmail1" class="col-lg-2 control-label">Dirección</label>
           <div class="col-md-3">
-            <input type="text" name="username" value="<?php echo $user->username;?>" class="form-control" required id="username" placeholder="Nombre de usuario">
+            <input type="text" name="address" value="<?php echo $user->address;?>" class="form-control" required id="username" placeholder="Dirección de usuario">
           </div>
-          <label for="inputEmail1" class="col-lg-1 control-label">Email*</label>
+          <label for="inputEmail1" class="col-lg-1 control-label">Usuario/Correo Electrónico*</label>
           <div class="col-md-3">
-            <input type="text" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Email">
+            <input type="email" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Usuario/Correo electrónico">
           </div>
         </div>
         <div class="form-group">
@@ -54,13 +54,14 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label" >Admin</label>
+          <label for="inputEmail1" class="col-lg-2 control-label">Rol*</label>
           <div class="col-md-3">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="is_admin" <?php if($user->is_admin){ echo "checked";}?>> 
-              </label>
-            </div>
+            <select name="kind" class="form-control" required>
+              <option value="">-- SELECCIONAR --</option>
+              <option value="1" <?php if($user->kind=='1'){ echo "selected"; } ?> >Administrador</option>
+              <option value="2" <?php if($user->kind=='2'){ echo "selected"; } ?> >Cajero</option>
+              <option value="3" <?php if($user->kind=='3'){ echo "selected"; } ?> >Vendedor</option>
+            </select>
           </div>
         </div>
         <div class="form-group">

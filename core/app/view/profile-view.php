@@ -28,13 +28,13 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label">Usuario*</label>
+          <label for="inputEmail1" class="col-lg-2 control-label">Dirección</label>
           <div class="col-md-3">
-            <input type="text" name="username" value="<?php echo $user->username;?>" class="form-control" required id="username" placeholder="Nombre de usuario">
+            <input type="text" name="address" value="<?php echo $user->address;?>" class="form-control" required id="address" placeholder="Dirección del usuario">
           </div>
-          <label for="inputEmail1" class="col-lg-1 control-label">Correo Elctrónico*</label>
+          <label for="inputEmail1" class="col-lg-1 control-label">Usuario/Correo Elctrónico*</label>
           <div class="col-md-3">
-            <input type="email" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Correo Electrónico">
+            <input type="email" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Usuario/Correo Electrónico">
           </div>
         </div>
         <div class="form-group">

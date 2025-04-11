@@ -7,7 +7,7 @@
 		<div class="col-md-12">
 			<h2><i class='fa fa-dollar'></i> Lista de Ventas</h2>
 			<div class="clearfix"></div>
-			<?php if($u->is_admin==1){
+			<?php if($u->kind==1){
 				$sells = SellData::getSells();
 			}else{
 				$sells = SellData::getSellsByUser($u->id);
@@ -24,7 +24,7 @@
 									<th style="text-align: center;">Cantidad</th>
 									<th style="text-align: center;">Total&nbsp;<?php echo $currency; ?></th>
 									<th style="text-align: center;">Cliente</th>
-									<?php if($u->is_admin==1): ?><th style="text-align: center;">Usuario</th><?php endif; ?>
+									<?php if($u->kind==1): ?><th style="text-align: center;">Usuario</th><?php endif; ?>
 									<th style="text-align: center;">Fecha</th>
 									<th style="text-align: center; width: 80px;">Acción</th>
 								</thead>
@@ -43,7 +43,7 @@
 										<?php if($sell->user_id!=""):
 										$user = $sell->getUser(); ?>
 										<?php endif; ?><?php echo $client->name." ".$client->lastname;?></td>
-									<?php if ($u->is_admin==1): ?><td><?php $user = UserData::getById($sell->user_id); echo $user->name." ".$user->lastname; ?></td><?php endif; ?>
+									<?php if ($u->kind==1): ?><td><?php $user = UserData::getById($sell->user_id); echo $user->name." ".$user->lastname; ?></td><?php endif; ?>
 									<td style="text-align: right;"><?php echo $sell->created_at; ?></td>
 									<td style="text-align: center;">
 										<a target="_blank" href="ticket.php?id=<?php echo $sell->id; ?>" class="btn btn-success btn-xs" ><i class="fa fa-print"></i></a>

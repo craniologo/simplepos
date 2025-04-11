@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 17, 2025 at 06:14 PM
+-- Generation Time: Apr 11, 2025 at 08:14 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -511,7 +511,8 @@ INSERT INTO `operation` (`id`, `product_id`, `q`, `bono`, `price_in`, `price_out
 (348, 1, 2, 0, 2, 6, 1, 239, '2025-03-15 19:26:11'),
 (349, 12, 2, 0, 40, 55, 2, 240, '2025-03-15 19:28:14'),
 (350, 1, 2, 0, 2, 6, 2, 241, '2025-03-17 12:15:29'),
-(351, 4, 3, 0, 5, 9, 2, 241, '2025-03-17 12:15:29');
+(351, 4, 3, 0, 5, 9, 2, 241, '2025-03-17 12:15:29'),
+(352, 1, 2, 0, 2, 6, 2, 242, '2025-04-11 15:11:46');
 
 -- --------------------------------------------------------
 
@@ -920,7 +921,8 @@ INSERT INTO `sell` (`id`, `ref_id`, `person_id`, `operation_type_id`, `box_id`, 
 (234, 195, 35, 2, 50, 1350, NULL, 0, 1, '2024-10-23 11:43:19'),
 (239, 39, 10, 1, NULL, 4, NULL, NULL, 1, '2025-03-15 19:26:11'),
 (240, 196, 35, 2, 50, 110, NULL, 0, 1, '2025-03-15 19:28:14'),
-(241, 197, 38, 2, 50, 29, NULL, 10, 2, '2025-03-17 12:15:29');
+(241, 197, 38, 2, 50, 29, NULL, 10, 2, '2025-03-17 12:15:29'),
+(242, 198, 31, 2, NULL, 12, NULL, 0, 1, '2025-04-11 15:11:46');
 
 -- --------------------------------------------------------
 
@@ -947,7 +949,8 @@ INSERT INTO `spend` (`id`, `name`, `price`, `box_id`, `user_id`, `created_at`) V
 (8, 'Compra de panes', 50, NULL, 1, '2023-05-30 22:46:11'),
 (9, 'Pancito caliente', 40, NULL, 3, '2024-10-01 00:00:00'),
 (10, 'Pizza', 20, NULL, 1, '2025-03-15 19:26:48'),
-(11, 'Compra de pancito caliente', 10, NULL, 2, '2025-03-17 11:50:41');
+(11, 'Compra de pancito caliente', 10, NULL, 2, '2025-03-17 11:50:41'),
+(12, 'Cachangas fritas ', 10, NULL, 3, '2025-04-11 14:13:56');
 
 -- --------------------------------------------------------
 
@@ -960,11 +963,12 @@ CREATE TABLE `user` (
   `name` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `address` text,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(60) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  `kind` tinyint(1) NOT NULL DEFAULT '3',
   `counter` int(11) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -973,11 +977,11 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `lastname`, `username`, `email`, `password`, `image`, `is_active`, `is_admin`, `counter`, `created_at`) VALUES
-(1, 'Pedro', 'Perez', 'admin', 'admin@hotmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', NULL, 1, 1, 885, '2016-12-18 17:29:08'),
-(2, 'Mirko', 'Talavera', 'mtalavera', 'mtalavera@hotmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', NULL, 1, 0, 45, '2017-04-13 10:35:36'),
-(3, 'Tito', 'Puente', 'tpuente', 'tpuente@hotmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', NULL, 1, 0, 31, '2017-04-13 17:45:31'),
-(4, 'Ruben', 'Santos', 'ruben', 'rubenrenesantosfuentes397@gmail.com', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'Beam.jpg', 1, 1, 0, '2024-07-10 18:33:49');
+INSERT INTO `user` (`id`, `name`, `lastname`, `username`, `address`, `email`, `password`, `image`, `is_active`, `kind`, `counter`, `created_at`) VALUES
+(1, 'Pedro', 'Perez', 'admin@gmail.com', NULL, 'admin@gmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', NULL, 1, 1, 885, '2016-12-18 17:29:08'),
+(2, 'Mirko', 'Talavera', 'cajero@gmail.com', 'Lima', 'cajero@gmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', '', 1, 2, 45, '2017-04-13 10:35:36'),
+(3, 'Tito', 'Puente', 'vendedor@gmail.com', 'Lima', 'vendedor@gmail.com', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', '', 1, 3, 31, '2017-04-13 17:45:31'),
+(4, 'Ruben', 'Santos', 'rubenrenesantosfuentes397@gmail.com', 'Cl RevoluciÃ³n 212 - Urb Esperanza alta', 'rubenrenesantosfuentes397@gmail.com', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'Beam.jpg', 1, 1, 0, '2024-07-10 18:33:49');
 
 --
 -- Indexes for dumped tables
@@ -1088,7 +1092,7 @@ ALTER TABLE `configuration`
 -- AUTO_INCREMENT for table `operation`
 --
 ALTER TABLE `operation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=352;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
 
 --
 -- AUTO_INCREMENT for table `operation_type`
@@ -1106,7 +1110,7 @@ ALTER TABLE `person`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `readjust`
@@ -1118,13 +1122,13 @@ ALTER TABLE `readjust`
 -- AUTO_INCREMENT for table `sell`
 --
 ALTER TABLE `sell`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 
 --
 -- AUTO_INCREMENT for table `spend`
 --
 ALTER TABLE `spend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`

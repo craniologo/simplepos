@@ -64,48 +64,54 @@
       <div class="modal-body">
         <table class="table">
           <tr><td>
-  		<form class="form-horizontal" method="post" id="addproduct" action="index.php?action=provider_add" role="form">
-        <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
-          <div class="col-md-3">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
-          </div>
-          <label for="inputEmail1" class="col-lg-1 control-label">Apellido*</label>
-          <div class="col-md-3">
-            <input type="text" name="lastname" required class="form-control" id="lastname" placeholder="Apellido">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label">RUC/DNI*</label>
-          <div class="col-md-3">
-            <input type="text" name="ruc" class="form-control" required id="ruc" placeholder="RUC/DNI">
-          </div>
-          <label for="inputEmail1" class="col-lg-1 control-label">Direccion*</label>
-          <div class="col-md-3">
-            <input type="text" name="address" class="form-control" required id="address" placeholder="Direccion">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
-          <div class="col-md-3">
-            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
-          </div>
-          <label for="inputEmail1" class="col-lg-1 control-label">Telefono*</label>
-          <div class="col-md-3">
-            <input type="text" name="phone" class="form-control" id="phone" placeholder="Telefono">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-lg-offset-2 col-lg-7">
-            <p class="alert alert-info">* Campos obligatorios</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-lg-offset-2 col-lg-10">
-            <button type="submit" class="btn btn-primary">Agregar Proveedor</button>
-          </div>
-        </div>
-      </form>
+			  		<form class="form-horizontal" method="post" id="addproduct" action="index.php?action=provider_add" role="form">
+			        <div class="form-group">
+			          <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
+			          <div class="col-md-9">
+			            <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+			          </div>
+			        </div>
+			        <div class="form-group">
+			          <label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
+			          <div class="col-md-9">
+			            <input type="text" name="lastname" required class="form-control" id="lastname" placeholder="Apellido">
+			          </div>
+			        </div>
+			        <div class="form-group">
+			          <label for="inputEmail1" class="col-lg-2 control-label">RUC/DNI*</label>
+			          <div class="col-md-9">
+			            <input type="text" name="ruc" class="form-control" required id="ruc" placeholder="RUC/DNI">
+			          </div>
+			        </div>
+			        <div class="form-group">
+			          <label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
+			          <div class="col-md-9">
+			            <input type="text" name="address" class="form-control" required id="address" placeholder="Direccion">
+			          </div>
+			        </div>
+			        <div class="form-group">
+			          <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
+			          <div class="col-md-9">
+			            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+			          </div>
+			        </div>
+			        <div class="form-group">
+			          <label for="inputEmail1" class="col-lg-2 control-label">Telefono*</label>
+			          <div class="col-md-9">
+			            <input type="text" name="phone" class="form-control" id="phone" placeholder="Telefono">
+			          </div>
+			        </div>
+			        <div class="form-group">
+			          <div class="col-lg-offset-2 col-lg-9">
+			            <p class="alert alert-info">* Campos obligatorios</p>
+			          </div>
+			        </div>
+			        <div class="form-group">
+			          <div class="col-lg-offset-2 col-lg-10">
+			            <button type="submit" class="btn btn-primary">Agregar Proveedor</button>
+			          </div>
+			        </div>
+			      </form>
           </td></tr>
         </table>
       </div>
