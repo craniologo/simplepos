@@ -1,7 +1,7 @@
 <?php
 
 
-// 13 de Octubre del 2014
+// 13 de Octubre del 2024
 // Cookie.php
 // @brief esto es algo mucho mas magico
 

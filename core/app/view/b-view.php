@@ -21,7 +21,7 @@
 									<th style="text-align: center;">Fecha</th>
 								</thead>
 								<?php for($number=0; $number<1; $number++); //variable incremental
-								foreach($sells as $sell):
+								foreach($sells as $sell){
 								$user = $sell->getUser(); ?>
 								<tr>
 									<td style="text-align: center;"><?php echo $number; ?></td> <?php $number++; ?><!--var incremen-->
@@ -31,7 +31,7 @@
 									<td><?php echo $user->name.' '.$user->lastname; ?></td>
 									<td style="text-align: right;"><?php echo $sell->created_at; ?></td>
 								</tr>
-								<?php endforeach; ?>
+								<?php } ?>
 							</table>
 							<h4>Total: <?php echo $currency." ".number_format($total_total,2,".",","); ?></h4>
 						</div>
